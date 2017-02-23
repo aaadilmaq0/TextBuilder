@@ -15,6 +15,8 @@
   * The user will have to add number of rows which they want (all these adding controls will be in the menubar) 
   * And from this form they can generate the automated text
 
+# [Synopsis](https://github.com/kunall17/TextBuilder/blob/master/Synopsis.md)
+
 
 # List of features
 
