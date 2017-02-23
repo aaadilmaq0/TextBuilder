@@ -54,3 +54,4 @@ Hard Disk:  1 MB hard disk or above
 | --- | --- | --- | --- | --- |
 | Adil Maqusood | 150911056 | 18 | IV (IT) | B |
 | Kunal Gupta | 150911046 | 15 | IV (IT) | B |
+| George | 1509110-- | 2 | IV (IT) | B |
