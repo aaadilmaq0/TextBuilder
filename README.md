@@ -1,5 +1,8 @@
 # TextBuilder
 
+# [Synopsis](https://github.com/kunall17/TextBuilder/blob/master/Synopsis.md)
+
+# [SRS Template](https://docs.google.com/document/d/1Ji2RT70-rsKjGyfxkjbpbCMrbcvRFt7WMi7yC21QMVk/edit?usp=sharing)
 
 ### Initial forms mockup - 
 ![1](https://cloud.githubusercontent.com/assets/12700799/23243732/e0394694-f9a6-11e6-89e1-ddca31a682b8.jpg)
@@ -14,9 +17,6 @@
   * In this a table control will be there where columns are mapped to the placeholders they added in the previous form
   * The user will have to add number of rows which they want (all these adding controls will be in the menubar) 
   * And from this form they can generate the automated text
-
-# [Synopsis](https://github.com/kunall17/TextBuilder/blob/master/Synopsis.md)
-
 
 # List of features
 
