@@ -4,3 +4,5 @@ TextBuilder/nbproject/private/private.xml
 TextBuilder/nbproject/private/private.properties
 TextBuilder/text.txt
 .DS_STORE
+/TextBuilder/build/
+/TextBuilder/dist/

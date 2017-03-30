@@ -9,15 +9,18 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.IOException;
 import java.nio.file.Files;
+import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.nio.file.StandardOpenOption;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JFileChooser;
+import javax.swing.JFrame;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 import javax.swing.JOptionPane;
+import javax.swing.WindowConstants;
 
 /**
  *
@@ -90,6 +93,11 @@ public class GenerateTextForm extends javax.swing.JFrame {
         jMenuBar1.add(jMenu2);
 
         jMenu3.setText("Help");
+        jMenu3.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jMenu3MouseClicked(evt);
+            }
+        });
         jMenuBar1.add(jMenu3);
 
         setJMenuBar(jMenuBar1);
@@ -133,16 +141,24 @@ public class GenerateTextForm extends javax.swing.JFrame {
             return;
         }
         if (result == JFileChooser.APPROVE_OPTION) {
-        }
-
-        try {
-            Files.write(Paths.get(jfc.getSelectedFile().getName()),
+      
+        try {            
+            
+            Files.write(Paths.get(jfc.getSelectedFile().getPath()),
                     finalString.toString().getBytes(), StandardOpenOption.CREATE);
         } catch (IOException ex) {
             Logger.getLogger(GenerateTextForm.class.getName()).log(Level.SEVERE, null, ex);
         }
-
+        }
     }//GEN-LAST:event_jMenu2MouseClicked
+
+    private void jMenu3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu3MouseClicked
+        // TODO add your handling code here:
+        boolean w = false;
+        HelpForm hf = new HelpForm(w);
+        hf.show();
+        hf.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
+    }//GEN-LAST:event_jMenu3MouseClicked
 
     public int getInt(char c) {
         return (int) c;

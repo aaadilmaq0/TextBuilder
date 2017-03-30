@@ -1,0 +1,5 @@
+android=12
+android=50
+android=70
+android=66
+android=84
