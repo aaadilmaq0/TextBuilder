@@ -16,6 +16,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JFileChooser;
 import javax.swing.JFrame;
+import javax.swing.JLabel;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
@@ -146,6 +147,7 @@ public class GenerateTextForm extends javax.swing.JFrame {
             
             Files.write(Paths.get(jfc.getSelectedFile().getPath()),
                     finalString.toString().getBytes(), StandardOpenOption.CREATE);
+            JOptionPane.showMessageDialog(rootPane, jfc.getSelectedFile().getName().toString()+" saved successfully");
         } catch (IOException ex) {
             Logger.getLogger(GenerateTextForm.class.getName()).log(Level.SEVERE, null, ex);
         }
