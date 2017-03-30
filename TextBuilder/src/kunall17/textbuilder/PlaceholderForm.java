@@ -21,6 +21,10 @@ public class PlaceholderForm extends javax.swing.JFrame {
      */
     public PlaceholderForm() {
         initComponents();
+               jTextArea1.setText("<img src=\"");
+                addPlaceholder();
+        jTextArea1.insert("\" />",jTextArea1.getText().length());
+
     }
 
     /**
@@ -101,16 +105,7 @@ public class PlaceholderForm extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        // TODO add your handling code here:
-        jTextArea1.replaceSelection("");
-                if (jTextArea1.getCaretPosition() == 0) {
-                    try {
-                        jTextArea1.setCaretPosition(jTextArea1.getLineEndOffset(jTextArea1.getLineCount()) - 1);
-                    } catch (Exception e1) {
-                        e1.printStackTrace();
-                    }
-                }
-                jTextArea1.insert(Constants.PLACEHOLDER_TEXT + noOfPlaceHolders++, jTextArea1.getCaretPosition());
+        addPlaceholder();
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
@@ -163,4 +158,16 @@ public class PlaceholderForm extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextArea jTextArea1;
     // End of variables declaration//GEN-END:variables
+
+    private void addPlaceholder() {
+        jTextArea1.replaceSelection("");
+                if (jTextArea1.getCaretPosition() == 0) {
+                    try {
+                        jTextArea1.setCaretPosition(jTextArea1.getLineEndOffset(jTextArea1.getLineCount()) - 1);
+                    } catch (Exception e1) {
+                        e1.printStackTrace();
+                    }
+                }
+                jTextArea1.insert(Constants.PLACEHOLDER_TEXT + noOfPlaceHolders++, jTextArea1.getCaretPosition());
+    }
 }
