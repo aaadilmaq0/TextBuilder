@@ -86,7 +86,7 @@ public class GenerateTextForm extends javax.swing.JFrame {
         ));
         jScrollPane1.setViewportView(jTable1);
 
-        jMenu1.setText("File");
+        jMenu1.setText("Fill with");
         jMenu1.add(jSeparator1);
 
         jMenu4.setText("Add rows");

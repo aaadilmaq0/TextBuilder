@@ -99,6 +99,7 @@ public class PlaceholderForm extends javax.swing.JFrame {
         // TODO add your handling code here:
         GenerateTextForm form = new GenerateTextForm(noOfPlaceHolders, jTextArea1.getText());
         form.show();
+        this.hide();
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
@@ -161,6 +162,9 @@ public class PlaceholderForm extends javax.swing.JFrame {
                 if (jTextArea1.getCaretPosition() == 0) {
                     try {
                         jTextArea1.setCaretPosition(jTextArea1.getLineEndOffset(jTextArea1.getLineCount()) - 1);
+                        
+                        
+                        
                     } catch (Exception e1) {
                         e1.printStackTrace();
                     }
