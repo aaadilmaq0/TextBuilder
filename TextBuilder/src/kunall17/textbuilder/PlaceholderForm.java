@@ -8,10 +8,7 @@ package kunall17.textbuilder;
 import javax.swing.JFrame;
 import javax.swing.WindowConstants;
 
-/**
- *
- * @author kunall17
- */
+
 public class PlaceholderForm extends javax.swing.JFrame {
 
     int noOfPlaceHolders = 0;
