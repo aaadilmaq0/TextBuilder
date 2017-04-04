@@ -22,6 +22,7 @@ import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 import javax.swing.JOptionPane;
 import javax.swing.WindowConstants;
+import static javax.swing.JOptionPane.showMessageDialog;
 
 /**
  *
@@ -59,6 +60,8 @@ public class GenerateTextForm extends javax.swing.JFrame {
         jTable1 = new javax.swing.JTable();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
+        jSeparator1 = new javax.swing.JPopupMenu.Separator();
+        jMenu4 = new javax.swing.JMenu();
         jMenu2 = new javax.swing.JMenu();
         jMenu3 = new javax.swing.JMenu();
 
@@ -78,6 +81,21 @@ public class GenerateTextForm extends javax.swing.JFrame {
         jScrollPane1.setViewportView(jTable1);
 
         jMenu1.setText("File");
+        jMenu1.add(jSeparator1);
+
+        jMenu4.setText("Add rows");
+        jMenu4.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jMenu4MouseClicked(evt);
+            }
+        });
+        jMenu4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenu4ActionPerformed(evt);
+            }
+        });
+        jMenu1.add(jMenu4);
+
         jMenuBar1.add(jMenu1);
 
         jMenu2.setText("Generate");
@@ -118,7 +136,7 @@ public class GenerateTextForm extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jMenu2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenu2ActionPerformed
-       
+
     }//GEN-LAST:event_jMenu2ActionPerformed
 
     private void jMenu2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu2MouseClicked
@@ -142,9 +160,9 @@ public class GenerateTextForm extends javax.swing.JFrame {
             return;
         }
         if (result == JFileChooser.APPROVE_OPTION) {
-      
-        try {            
-            
+
+        try {
+
             Files.write(Paths.get(jfc.getSelectedFile().getPath()),
                     finalString.toString().getBytes(), StandardOpenOption.CREATE);
             JOptionPane.showMessageDialog(rootPane, jfc.getSelectedFile().getName().toString()+" saved successfully");
@@ -162,6 +180,34 @@ public class GenerateTextForm extends javax.swing.JFrame {
         hf.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
     }//GEN-LAST:event_jMenu3MouseClicked
 
+    private void jMenu4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenu4ActionPerformed
+        // TODO add your handling code here:
+        System.out.println("asdasd");
+        Object result = JOptionPane.showInputDialog(this, "Enter Number of Rows to be added?");
+                try {
+                    int no = Integer.parseInt(result.toString());
+                    for (int i = 0; i < no; i++) {
+                        tm.addRow();
+                    }
+                } catch (Exception e1) {
+                    showMessageDialog(this, e1.toString());
+                }
+
+    }//GEN-LAST:event_jMenu4ActionPerformed
+
+    private void jMenu4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu4MouseClicked
+        Object result = JOptionPane.showInputDialog(this, "Enter Number of Rows to be added?");
+                try {
+                    int no = Integer.parseInt(result.toString());
+                    for (int i = 0; i < no; i++) {
+                        tm.addRow();
+                    }
+                } catch (Exception e1) {
+                    showMessageDialog(this, e1.toString());
+                }
+    }//GEN-LAST:event_jMenu4MouseClicked
+>>>>>>> Add new rows in the file menu
+
     public int getInt(char c) {
         return (int) c;
     }
@@ -170,8 +216,10 @@ public class GenerateTextForm extends javax.swing.JFrame {
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenu jMenu3;
+    private javax.swing.JMenu jMenu4;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JPopupMenu.Separator jSeparator1;
     private javax.swing.JTable jTable1;
     // End of variables declaration//GEN-END:variables
 }
