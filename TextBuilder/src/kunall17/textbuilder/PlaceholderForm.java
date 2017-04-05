@@ -5,22 +5,28 @@
  */
 package kunall17.textbuilder;
 
+import javax.swing.DefaultListModel;
 import javax.swing.JFrame;
+import javax.swing.ListModel;
 import javax.swing.WindowConstants;
+import javax.swing.event.ListDataListener;
 
 
 public class PlaceholderForm extends javax.swing.JFrame {
 
     int noOfPlaceHolders = 0;
-    
+    DefaultListModel defaultListModel;
+
     /**
      * Creates new form PlaceholderForm
      */
     public PlaceholderForm() {
         initComponents();
-               jTextArea1.setText("<img src=\"");
-                addPlaceholder();
-        jTextArea1.insert("\" />",jTextArea1.getText().length());
+        jTextArea1.setText("<img src=\"");
+        jTextArea1.insert("\" />", jTextArea1.getText().length());
+        defaultListModel = new DefaultListModel();
+        jList1.setModel(defaultListModel);
+        addPlaceholder();
 
     }
 
@@ -38,6 +44,11 @@ public class PlaceholderForm extends javax.swing.JFrame {
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
+        jSeparator1 = new javax.swing.JSeparator();
+        jLabel1 = new javax.swing.JLabel();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        jList1 = new javax.swing.JList<>();
+        jButton4 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -67,29 +78,70 @@ public class PlaceholderForm extends javax.swing.JFrame {
             }
         });
 
+        jSeparator1.setOrientation(javax.swing.SwingConstants.VERTICAL);
+
+        jLabel1.setText("PLACEHOLDERS");
+
+        jList1.setModel(new javax.swing.AbstractListModel<String>() {
+            String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
+            public int getSize() { return strings.length; }
+            public String getElementAt(int i) { return strings[i]; }
+        });
+        jScrollPane2.setViewportView(jList1);
+
+        jButton4.setText("REMOVE");
+        jButton4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton4ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 400, Short.MAX_VALUE)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jButton3)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jButton2)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jButton3)
+                        .addGap(104, 104, 104)
+                        .addComponent(jButton2)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jButton1))
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 420, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButton1))
+                .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(28, 28, 28)
+                        .addComponent(jLabel1))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(30, 30, 30)
+                        .addComponent(jButton4))
+                    .addGroup(layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
+            .addComponent(jSeparator1, javax.swing.GroupLayout.Alignment.TRAILING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 254, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton1)
                     .addComponent(jButton2)
-                    .addComponent(jButton3))
-                .addGap(0, 11, Short.MAX_VALUE))
+                    .addComponent(jButton3)))
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane2)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jButton4))
         );
 
         pack();
@@ -113,6 +165,30 @@ public class PlaceholderForm extends javax.swing.JFrame {
         hf.show();
         hf.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
     }//GEN-LAST:event_jButton3ActionPerformed
+
+    public int extractPlaceholdeNumber(String name) {
+        return Integer.parseInt((name.replace(Constants.PLACEHOLDER_TEXT, "")));
+    }
+
+    public void renameInList(String old, String newString) {
+        int index = defaultListModel.indexOf(old);
+        defaultListModel.remove(index);
+        defaultListModel.add(index, newString);
+    }
+
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+        if (jList1.getSelectedIndex() == -1) {
+            return;
+        }
+        int index = jList1.getSelectedIndex();
+        jTextArea1.setText(jTextArea1.getText().replace(String.valueOf(defaultListModel.get(index)), ""));
+        defaultListModel.remove(index);
+        for (int i = index; i < defaultListModel.size(); i++) {
+            String cur = String.valueOf(defaultListModel.get(i));
+            renameInList(cur, Constants.PLACEHOLDER_TEXT + (extractPlaceholdeNumber(cur) - 1));
+            jTextArea1.setText(jTextArea1.getText().replace(cur, Constants.PLACEHOLDER_TEXT + (extractPlaceholdeNumber(cur) + 1)));
+        }
+    }//GEN-LAST:event_jButton4ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -153,11 +229,16 @@ public class PlaceholderForm extends javax.swing.JFrame {
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
+    private javax.swing.JButton jButton4;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JList<String> jList1;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JSeparator jSeparator1;
     private javax.swing.JTextArea jTextArea1;
     // End of variables declaration//GEN-END:variables
 
-    private void addPlaceholder() {
+    public void addPlaceholder() {
         jTextArea1.replaceSelection("");
                 if (jTextArea1.getCaretPosition() == 0) {
                     try {
@@ -170,5 +251,15 @@ public class PlaceholderForm extends javax.swing.JFrame {
                     }
                 }
                 jTextArea1.insert(Constants.PLACEHOLDER_TEXT + noOfPlaceHolders++, jTextArea1.getCaretPosition());
+        if (jTextArea1.getCaretPosition() == 0) {
+            try {
+                jTextArea1.setCaretPosition(jTextArea1.getLineEndOffset(jTextArea1.getLineCount()) - 1);
+            } catch (Exception e1) {
+                e1.printStackTrace();
+            }
+        }
+        String placeholder = Constants.PLACEHOLDER_TEXT + noOfPlaceHolders++;
+        jTextArea1.insert(placeholder, jTextArea1.getCaretPosition());
+        defaultListModel.addElement(placeholder);
     }
 }
