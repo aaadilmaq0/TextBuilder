@@ -5,11 +5,7 @@
  */
 package kunall17.textbuilder;
 
-import javax.swing.DefaultListModel;
-import javax.swing.JFrame;
-import javax.swing.ListModel;
-import javax.swing.WindowConstants;
-import javax.swing.event.ListDataListener;
+import javax.swing.*;
 
 
 public class PlaceholderForm extends javax.swing.JFrame {

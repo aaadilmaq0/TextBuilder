@@ -5,10 +5,10 @@
  */
 package kunall17.textbuilder;
 
+import javax.swing.*;
+import javax.swing.table.AbstractTableModel;
 import java.util.ArrayList;
 import java.util.List;
-import javax.swing.JOptionPane;
-import javax.swing.table.AbstractTableModel;
 
 /**
  *
