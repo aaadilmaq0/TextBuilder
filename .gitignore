@@ -7,3 +7,6 @@ TextBuilder/text.txt
 /TextBuilder/build/
 /TextBuilder/dist/
 TextBuilder/nbproject/private/private.xml
+
+TextBuilder/TextBuilder.iml
+TextBuilder/.idea/
