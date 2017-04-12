@@ -6,6 +6,8 @@
 package kunall17.textbuilder;
 
 import javax.swing.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
@@ -22,6 +24,7 @@ public class GenerateTextForm extends javax.swing.JFrame {
     int numberOfPlaceHolders = -1;
     String text;
     GenerateTextInterface generateTextInterface;
+    final JFrame jFrame;
 
     public void setGenerateTextInterface(GenerateTextInterface generateTextInterface) {
         this.generateTextInterface = generateTextInterface;
@@ -32,12 +35,14 @@ public class GenerateTextForm extends javax.swing.JFrame {
      */
     public GenerateTextForm(int numberOfPlaceHolders, String text) {
         initComponents();
+
         this.text = text;
         this.numberOfPlaceHolders = numberOfPlaceHolders;
         tm = new BuilderTableModel(numberOfPlaceHolders);
         jTable1.setModel(tm);
 
 //        setupMenuBar();
+        jFrame = this;
     }
 
     /**
@@ -159,12 +164,11 @@ public class GenerateTextForm extends javax.swing.JFrame {
         jMenu2.setText("Generate");
         jMenu2.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jMenu2MouseClicked(evt);
             }
         });
         jMenu2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenu2ActionPerformed(evt);
+                generateFinal();
             }
         });
         jMenuBar1.add(jMenu2);
@@ -193,12 +197,8 @@ public class GenerateTextForm extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jMenu2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenu2ActionPerformed
-
-    }//GEN-LAST:event_jMenu2ActionPerformed
-
-    private void jMenu2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu2MouseClicked
-        // TODO add your handling code here:
+    private void generateFinal() {
+// TODO add your handling code here:
         // TODO add your handling code here:
         System.out.println("ASASDASD");
         String t1 = text;
@@ -235,7 +235,8 @@ public class GenerateTextForm extends javax.swing.JFrame {
                 Logger.getLogger(GenerateTextForm.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
-    }//GEN-LAST:event_jMenu2MouseClicked
+
+    }
 
     private void jMenu3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu3MouseClicked
         // TODO add your handling code here:
@@ -274,7 +275,8 @@ public class GenerateTextForm extends javax.swing.JFrame {
 
     private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
         // TODO add your handling code here:
-
+        System.out.println("ASDASD");
+        showMessageDialog(this, "ASDASD");
         if (jTable1.getSelectedColumnCount() == 0) {
             showMessageDialog(null, "No selected Column");
 

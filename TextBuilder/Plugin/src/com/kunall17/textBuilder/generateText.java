@@ -7,27 +7,39 @@ import com.intellij.openapi.command.WriteCommandAction;
 import com.intellij.openapi.editor.Document;
 import com.intellij.openapi.editor.Editor;
 import com.intellij.openapi.editor.SelectionModel;
+import com.intellij.openapi.fileEditor.FileEditorManager;
 import com.intellij.openapi.project.Project;
 import kunall17.textbuilder.GenerateTextInterface;
 import kunall17.textbuilder.PlaceholderForm;
+
+import javax.swing.*;
 
 public class generateText extends AnAction {
 
     @Override
     public void actionPerformed(AnActionEvent e) {
-        final Project project = e.getData(CommonDataKeys.PROJECT);
-        final Editor editor = e.getData(CommonDataKeys.EDITOR);
+        Project project = e.getData(CommonDataKeys.PROJECT);
+        Editor editor = e.getData(CommonDataKeys.EDITOR);
         e.getPresentation().setVisible((project != null && editor != null && editor.getSelectionModel().hasSelection()));
-        final Document document = editor.getDocument();
+        project = e.getProject();
+        if (project == null) {
+            return;
+        }
+        editor = FileEditorManager.getInstance(project).getSelectedTextEditor();
+        Document document = editor.getDocument();
+
+
         final SelectionModel selectionModel = editor.getSelectionModel();
         final int start = selectionModel.getSelectionStart();
         final int end = selectionModel.getSelectionEnd();
+        AnAction asd = this;
         Runnable runnable = new Runnable() {
             @Override
             public void run() {
                 String text = selectionModel.getSelectedText();
 
-                GenerateTextInterface gti = finalText -> {
+                GenerateTextInterface gti = (String finalText) -> {
+                    System.out.println("HERE!" + finalText);
                     document.replaceString(start, end, finalText);
                 };
                 PlaceholderForm pf = new PlaceholderForm(text, start, end, gti);
