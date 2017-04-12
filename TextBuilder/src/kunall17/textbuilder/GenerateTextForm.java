@@ -59,119 +59,90 @@ public class GenerateTextForm extends javax.swing.JFrame {
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jSeparator1 = new javax.swing.JPopupMenu.Separator();
-        jMenu4 = new javax.swing.JMenu();
-        jMenuItem1 = new javax.swing.JMenuItem();
-        jMenu5 = new javax.swing.JMenu();
-        jMenu6 = new javax.swing.JMenu();
-        jMenu7 = new javax.swing.JMenu();
-        jMenu8 = new javax.swing.JMenu();
-        jMenu2 = new javax.swing.JMenu();
+        addFileList = new javax.swing.JMenuItem();
+        menuAddRows = new javax.swing.JMenuItem();
+        addFullPathList = new javax.swing.JMenuItem();
+        generateNumbers = new javax.swing.JMenuItem();
+        generateAlphabets = new javax.swing.JMenuItem();
+        clearTable = new javax.swing.JMenuItem();
+        generateMenuItem = new javax.swing.JMenuItem();
         jMenu3 = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
-                new Object[][]{
-                        {null, null, null, null},
-                        {null, null, null, null},
-                        {null, null, null, null},
-                        {null, null, null, null}
-                },
-                new String[]{
-                        "Title 1", "Title 2", "Title 3", "Title 4"
-                }
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
         ));
         jScrollPane1.setViewportView(jTable1);
 
         jMenu1.setText("Fill with");
         jMenu1.add(jSeparator1);
 
-        jMenu4.setText("Add rows");
-        jMenu4.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jMenu4MouseClicked(evt);
-            }
-        });
-        jMenu4.addActionListener(new java.awt.event.ActionListener() {
+        addFileList.setText("Add file list");
+        addFileList.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenu4ActionPerformed(evt);
+                addFileListActionPerformed(evt);
             }
         });
-        jMenu1.add(jMenu4);
+        jMenu1.add(addFileList);
 
-        jMenuItem1.setText("Add file list");
-        jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
+        menuAddRows.setText("Add Rows");
+        menuAddRows.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem1ActionPerformed(evt);
+                menuAddRowsActionPerformed(evt);
             }
         });
-        jMenu1.add(jMenuItem1);
+        jMenu1.add(menuAddRows);
 
-        jMenu5.setText("Add full path list");
-        jMenu5.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jMenu5MouseClicked(evt);
-            }
-        });
-        jMenu5.addActionListener(new java.awt.event.ActionListener() {
+        addFullPathList.setText("Add Full path list");
+        addFullPathList.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenu5ActionPerformed(evt);
+                addFullPathListActionPerformed(evt);
             }
         });
-        jMenu1.add(jMenu5);
+        jMenu1.add(addFullPathList);
 
-        jMenu6.setText("Generate Numbers");
-        jMenu6.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jMenu6MouseClicked(evt);
-            }
-        });
-        jMenu6.addActionListener(new java.awt.event.ActionListener() {
+        generateNumbers.setText("Generate Numbers");
+        generateNumbers.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenu6ActionPerformed(evt);
+                generateNumbersActionPerformed(evt);
             }
         });
-        jMenu1.add(jMenu6);
+        jMenu1.add(generateNumbers);
 
-        jMenu7.setText("Generate alphabets");
-        jMenu7.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jMenu7MouseClicked(evt);
-            }
-        });
-        jMenu7.addActionListener(new java.awt.event.ActionListener() {
+        generateAlphabets.setText("Generate alphabets");
+        generateAlphabets.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenu7ActionPerformed(evt);
+                generateAlphabetsActionPerformed(evt);
             }
         });
-        jMenu1.add(jMenu7);
+        jMenu1.add(generateAlphabets);
 
-        jMenu8.setText("Clear tables");
-        jMenu8.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jMenu8MouseClicked(evt);
-            }
-        });
-        jMenu8.addActionListener(new java.awt.event.ActionListener() {
+        clearTable.setText("Clear Table");
+        clearTable.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenu8ActionPerformed(evt);
+                clearTableActionPerformed(evt);
             }
         });
-        jMenu1.add(jMenu8);
+        jMenu1.add(clearTable);
+
+        generateMenuItem.setText("Generate");
+        generateMenuItem.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                generateMenuItemActionPerformed(evt);
+            }
+        });
+        jMenu1.add(generateMenuItem);
 
         jMenuBar1.add(jMenu1);
-
-        jMenu2.setText("Generate");
-        jMenu2.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-            }
-        });
-        jMenu2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                generateFinal();
-            }
-        });
-        jMenuBar1.add(jMenu2);
 
         jMenu3.setText("Help");
         jMenu3.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -186,12 +157,12 @@ public class GenerateTextForm extends javax.swing.JFrame {
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
-                layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 400, Short.MAX_VALUE)
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 400, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
-                layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 278, Short.MAX_VALUE)
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 278, Short.MAX_VALUE)
         );
 
         pack();
@@ -246,34 +217,56 @@ public class GenerateTextForm extends javax.swing.JFrame {
         hf.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
     }//GEN-LAST:event_jMenu3MouseClicked
 
-    private void jMenu4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenu4ActionPerformed
+    private void menuAddRowsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuAddRowsActionPerformed
+               Object result = JOptionPane.showInputDialog(this, "Enter Number of Rows to be added?");
+        try {
+            int no = Integer.parseInt(result.toString());
+            for (int i = 0; i < no; i++) {
+                tm.addRow();
+            }
+        } catch (Exception e1) {
+            showMessageDialog(this, e1.toString());
+        }
+    }//GEN-LAST:event_menuAddRowsActionPerformed
+
+    private void addFullPathListActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addFullPathListActionPerformed
+        
         // TODO add your handling code here:
-        System.out.println("asdasd");
-        Object result = JOptionPane.showInputDialog(this, "Enter Number of Rows to be added?");
-        try {
-            int no = Integer.parseInt(result.toString());
-            for (int i = 0; i < no; i++) {
-                tm.addRow();
+        if (jTable1.getSelectedColumnCount() == 0) {
+            showMessageDialog(null, "No selected Column");
+
+        } else {
+
+            JFileChooser fileChooser = new JFileChooser();
+            fileChooser.setCurrentDirectory(new File(System.getProperty("user.home")));
+            fileChooser.setMultiSelectionEnabled(true);
+            int result = fileChooser.showOpenDialog(this);
+            if (result == JFileChooser.APPROVE_OPTION) {
+                File[] selectedFile = fileChooser.getSelectedFiles();
+                if (selectedFile.length == 1) {
+                    tm.setValueAt(selectedFile[0].getAbsolutePath().toString(), jTable1.getSelectedRow(), jTable1.getSelectedColumn());
+                } else {
+
+                    for (int i = 0; i < selectedFile.length; i++) {
+                        if (jTable1.getSelectedRow() + i >= jTable1.getRowCount()) {
+                            tm.addRow();
+                        }
+                        tm.setValueAt(selectedFile[i].getAbsolutePath(), jTable1.getSelectedRow() + i, jTable1.getSelectedColumn());
+                    }
+
+                }
+
             }
-        } catch (Exception e1) {
-            showMessageDialog(this, e1.toString());
         }
 
-    }//GEN-LAST:event_jMenu4ActionPerformed
+    }//GEN-LAST:event_addFullPathListActionPerformed
 
-    private void jMenu4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu4MouseClicked
-        Object result = JOptionPane.showInputDialog(this, "Enter Number of Rows to be added?");
-        try {
-            int no = Integer.parseInt(result.toString());
-            for (int i = 0; i < no; i++) {
-                tm.addRow();
-            }
-        } catch (Exception e1) {
-            showMessageDialog(this, e1.toString());
-        }
-    }//GEN-LAST:event_jMenu4MouseClicked
+    private void generateMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_generateMenuItemActionPerformed
+        // TODO add your handling code here:
+        generateFinal();
+    }//GEN-LAST:event_generateMenuItemActionPerformed
 
-    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
+    private void addFileListActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addFileListActionPerformed
         // TODO add your handling code here:
         System.out.println("ASDASD");
         showMessageDialog(this, "ASDASD");
@@ -304,42 +297,10 @@ public class GenerateTextForm extends javax.swing.JFrame {
             }
 
         }
+    }//GEN-LAST:event_addFileListActionPerformed
 
-    }//GEN-LAST:event_jMenuItem1ActionPerformed
-
-    private void jMenu5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenu5ActionPerformed
+    private void generateNumbersActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_generateNumbersActionPerformed
         // TODO add your handling code here:
-
-        if (jTable1.getSelectedColumnCount() == 0) {
-            showMessageDialog(null, "No selected Column");
-
-        } else {
-
-            JFileChooser fileChooser = new JFileChooser();
-            fileChooser.setCurrentDirectory(new File(System.getProperty("user.home")));
-            fileChooser.setMultiSelectionEnabled(true);
-            int result = fileChooser.showOpenDialog(this);
-            if (result == JFileChooser.APPROVE_OPTION) {
-                File[] selectedFile = fileChooser.getSelectedFiles();
-                if (selectedFile.length == 1) {
-                    tm.setValueAt(selectedFile[0].getAbsolutePath().toString(), jTable1.getSelectedRow(), jTable1.getSelectedColumn());
-                } else {
-
-                    for (int i = 0; i < selectedFile.length; i++) {
-                        if (jTable1.getSelectedRow() + i >= jTable1.getRowCount()) {
-                            tm.addRow();
-                        }
-                        tm.setValueAt(selectedFile[i].getAbsolutePath(), jTable1.getSelectedRow() + i, jTable1.getSelectedColumn());
-                    }
-
-                }
-
-            }
-
-        }
-    }//GEN-LAST:event_jMenu5ActionPerformed
-
-    private void jMenu6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenu6ActionPerformed
         if (jTable1.getSelectedColumnCount() == 0) {
             showMessageDialog(null, "No selected Column");
 
@@ -359,9 +320,10 @@ public class GenerateTextForm extends javax.swing.JFrame {
                 }
             }
         }
-    }//GEN-LAST:event_jMenu6ActionPerformed
+    }//GEN-LAST:event_generateNumbersActionPerformed
 
-    private void jMenu7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenu7ActionPerformed
+    private void generateAlphabetsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_generateAlphabetsActionPerformed
+         // TODO add your handling code here:
         if (jTable1.getSelectedColumnCount() == 0) {
             showMessageDialog(null, "No selected Column");
 
@@ -397,130 +359,29 @@ public class GenerateTextForm extends javax.swing.JFrame {
                 tm.setValueAt(c1, jTable1.getSelectedRow() + i, jTable1.getSelectedColumn() + j);
             }
         }
+    }//GEN-LAST:event_generateAlphabetsActionPerformed
 
-    }//GEN-LAST:event_jMenu7ActionPerformed
-
-    private void jMenu8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenu8ActionPerformed
-        // TODO add your handling code here:
+    private void clearTableActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_clearTableActionPerformed
         tm.clearAll();
-    }//GEN-LAST:event_jMenu8ActionPerformed
-
-    private void jMenu5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu5MouseClicked
-
-        // TODO add your handling code here:
-        if (jTable1.getSelectedColumnCount() == 0) {
-            showMessageDialog(null, "No selected Column");
-
-        } else {
-
-            JFileChooser fileChooser = new JFileChooser();
-            fileChooser.setCurrentDirectory(new File(System.getProperty("user.home")));
-            fileChooser.setMultiSelectionEnabled(true);
-            int result = fileChooser.showOpenDialog(this);
-            if (result == JFileChooser.APPROVE_OPTION) {
-                File[] selectedFile = fileChooser.getSelectedFiles();
-                if (selectedFile.length == 1) {
-                    tm.setValueAt(selectedFile[0].getAbsolutePath().toString(), jTable1.getSelectedRow(), jTable1.getSelectedColumn());
-                } else {
-
-                    for (int i = 0; i < selectedFile.length; i++) {
-                        if (jTable1.getSelectedRow() + i >= jTable1.getRowCount()) {
-                            tm.addRow();
-                        }
-                        tm.setValueAt(selectedFile[i].getAbsolutePath(), jTable1.getSelectedRow() + i, jTable1.getSelectedColumn());
-                    }
-
-                }
-
-            }
-
-        }
-    }//GEN-LAST:event_jMenu5MouseClicked
-
-    private void jMenu6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu6MouseClicked
-        // TODO add your handling code here:
-        if (jTable1.getSelectedColumnCount() == 0) {
-            showMessageDialog(null, "No selected Column");
-
-        } else {
-            Object result = JOptionPane.showInputDialog(null, "Enter Numbers seperated by - (Eg. 4-11)");
-            String[] sd = String.valueOf(result).split("-");
-            int n1 = Integer.parseInt(sd[0]);
-            int n2 = Integer.parseInt(sd[1]);
-
-            for (int i = 0; i <= n2 - n1; i++) {
-                if (jTable1.getSelectedRow() + i >= jTable1.getRowCount()) {
-                    tm.addRow();
-                }
-                for (int j = 0; j < jTable1.getSelectedColumnCount(); j++) {
-
-                    tm.setValueAt(n1 + i, jTable1.getSelectedRow() + i, jTable1.getSelectedColumn() + j);
-                }
-            }
-        }
-    }//GEN-LAST:event_jMenu6MouseClicked
-
-    private void jMenu7MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu7MouseClicked
-        // TODO add your handling code here:
-        if (jTable1.getSelectedColumnCount() == 0) {
-            showMessageDialog(null, "No selected Column");
-
-        } else {
-            String s = (String) JOptionPane.showInputDialog(this,
-                    "Enter the alphabets (Same case alphabets) Eg. A-Z",
-                    "Alphabets", JOptionPane.OK_CANCEL_OPTION, null,
-                    null, "A-Z");
-
-            String[] d = s.split("-");
-            char c1 = d[0].charAt(0);
-            char c2 = d[1].charAt(0);
-
-            int i = 0;
-            do {
-                if (jTable1.getSelectedRow() + i >= jTable1.getRowCount()) {
-                    tm.addRow();
-                }
-                for (int j = 0; j < jTable1.getSelectedColumnCount(); j++) {
-                    tm.setValueAt(c1, jTable1.getSelectedRow() + i, jTable1.getSelectedColumn() + j);
-                }
-
-                c1 = ((char) (getInt(c1) + 1));
-                if (i++ > 55) {
-                    break;
-                }
-            } while (c1 != c2);
-
-            if (jTable1.getSelectedRow() + i >= jTable1.getRowCount()) {
-                tm.addRow();
-            }
-            for (int j = 0; j < jTable1.getSelectedColumnCount(); j++) {
-                tm.setValueAt(c1, jTable1.getSelectedRow() + i, jTable1.getSelectedColumn() + j);
-            }
-        }
-    }//GEN-LAST:event_jMenu7MouseClicked
-
-    private void jMenu8MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu8MouseClicked
-        // TODO add your handling code here:
-        tm.clearAll();
-    }//GEN-LAST:event_jMenu8MouseClicked
+    }//GEN-LAST:event_clearTableActionPerformed
 
     public int getInt(char c) {
         return (int) c;
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JMenuItem addFileList;
+    private javax.swing.JMenuItem addFullPathList;
+    private javax.swing.JMenuItem clearTable;
+    private javax.swing.JMenuItem generateAlphabets;
+    private javax.swing.JMenuItem generateMenuItem;
+    private javax.swing.JMenuItem generateNumbers;
     private javax.swing.JMenu jMenu1;
-    private javax.swing.JMenu jMenu2;
     private javax.swing.JMenu jMenu3;
-    private javax.swing.JMenu jMenu4;
-    private javax.swing.JMenu jMenu5;
-    private javax.swing.JMenu jMenu6;
-    private javax.swing.JMenu jMenu7;
-    private javax.swing.JMenu jMenu8;
     private javax.swing.JMenuBar jMenuBar1;
-    private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JPopupMenu.Separator jSeparator1;
     private javax.swing.JTable jTable1;
+    private javax.swing.JMenuItem menuAddRows;
     // End of variables declaration//GEN-END:variables
 }
