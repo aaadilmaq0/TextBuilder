@@ -12,8 +12,6 @@ import com.intellij.openapi.project.Project;
 import kunall17.textbuilder.GenerateTextInterface;
 import kunall17.textbuilder.PlaceholderForm;
 
-import javax.swing.*;
-
 public class generateText extends AnAction {
 
     @Override
@@ -27,34 +25,23 @@ public class generateText extends AnAction {
         }
         editor = FileEditorManager.getInstance(project).getSelectedTextEditor();
         Document document = editor.getDocument();
-
-
         final SelectionModel selectionModel = editor.getSelectionModel();
         final int start = selectionModel.getSelectionStart();
         final int end = selectionModel.getSelectionEnd();
-        AnAction asd = this;
-        Runnable runnable = new Runnable() {
-            @Override
-            public void run() {
-                String text = selectionModel.getSelectedText();
+        Project finalProject = project;
+        Runnable runnable = () -> {
+            String text = selectionModel.getSelectedText();
 
-                GenerateTextInterface gti = (String finalText) -> {
-                    System.out.println("HERE!" + finalText);
-                    document.replaceString(start, end, finalText);
-                };
-                PlaceholderForm pf = new PlaceholderForm(text, start, end, gti);
-                pf.setBounds(10, 10, 400, 400);
-                pf.setVisible(true);
-            }
+            GenerateTextInterface gti = (String finalText) -> {
+                WriteCommandAction.runWriteCommandAction(finalProject, () -> document.replaceString(start, end, finalText));
+            };
+            PlaceholderForm pf = new PlaceholderForm(text, start, end, gti);
+            pf.setBounds(10, 10, 400, 400);
+            pf.setVisible(true);
+
         };
         WriteCommandAction.runWriteCommandAction(project, runnable);
         selectionModel.removeSelection();
 
     }
-
-    @Override
-    public void update(AnActionEvent e) {
-
-    }
-
 }

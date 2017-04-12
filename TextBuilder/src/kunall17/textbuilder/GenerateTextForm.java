@@ -6,8 +6,6 @@
 package kunall17.textbuilder;
 
 import javax.swing.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
@@ -171,7 +169,6 @@ public class GenerateTextForm extends javax.swing.JFrame {
     private void generateFinal() {
 // TODO add your handling code here:
         // TODO add your handling code here:
-        System.out.println("ASASDASD");
         String t1 = text;
 
         StringBuilder finalString = new StringBuilder();
@@ -187,6 +184,7 @@ public class GenerateTextForm extends javax.swing.JFrame {
 
         if (generateTextInterface != null) { //Check if started from plugin
             generateTextInterface.replaceText(finalString.toString());
+            this.hide();
             return;
         }
 
@@ -268,8 +266,6 @@ public class GenerateTextForm extends javax.swing.JFrame {
 
     private void addFileListActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addFileListActionPerformed
         // TODO add your handling code here:
-        System.out.println("ASDASD");
-        showMessageDialog(this, "ASDASD");
         if (jTable1.getSelectedColumnCount() == 0) {
             showMessageDialog(null, "No selected Column");
 
