@@ -241,17 +241,8 @@ public class PlaceholderForm extends javax.swing.JFrame {
         if (jTextArea1.getCaretPosition() == 0) {
             try {
                 jTextArea1.setCaretPosition(jTextArea1.getLineEndOffset(jTextArea1.getLineCount()) - 1);
-
             } catch (Exception e1) {
-                e1.printStackTrace();
-            }
-        }
-        jTextArea1.insert(Constants.PLACEHOLDER_TEXT + noOfPlaceHolders++, jTextArea1.getCaretPosition());
-        if (jTextArea1.getCaretPosition() == 0) {
-            try {
-                jTextArea1.setCaretPosition(jTextArea1.getLineEndOffset(jTextArea1.getLineCount()) - 1);
-            } catch (Exception e1) {
-                e1.printStackTrace();
+//                e1.printStackTrace();
             }
         }
         String placeholder = Constants.PLACEHOLDER_TEXT + noOfPlaceHolders++;
