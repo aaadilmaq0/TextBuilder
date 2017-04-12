@@ -83,7 +83,6 @@ class BuilderTableModel extends AbstractTableModel {
      * then the last column would contain text ("true"/"false"),
      * rather than a check box.
      */
-
     public boolean isCellEditable(int row, int col) {
         return true;
     }

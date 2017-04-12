@@ -6,5 +6,6 @@
 package kunall17.textbuilder;
 
 public class Constants {
-        public static final String PLACEHOLDER_TEXT = "placeHolder*&^!=?";
+
+    public static final String PLACEHOLDER_TEXT = "placeHolder*&^!=?";
 }

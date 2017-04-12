@@ -5,8 +5,8 @@
  */
 package kunall17.textbuilder;
 
-
 class RowData {
+
     int size;
     String[] data;
 
