@@ -1,0 +1,51 @@
+<idea-plugin version="2">
+  <id>com.kunall17.textBuilder</id>
+  <name>Text Builder</name>
+  <version>1.0</version>
+  <vendor email="kunall.gupta17@gmail.com" url="kunall17.github.io">kunall17</vendor>
+
+  <description><![CDATA[
+     	<p>This plugin lets you generate repeated text.</p>
+	<p>Eg. Suppose Im creating a custom keyboard.</p>
+	<p>And i have to create custom key bindings using the following code for each letter!</p>
+	<em><Button android:text="W"
+	android:id="@+id/W"
+	android:onClick="keyBtn_Click"
+	android:layout_weight="1"
+	android:layout_width="0dp"
+	android:layout_height="wrap_content"/>
+	</em>
+	<p>This code has to be repeated for each letter that I want to bind. Instead of copy/pasting the code. Textbuilder would generate the code for me.</p>
+    <p>And in some seconds i can generate the whole keyboard code.</p>
+    <p>There are options to add files, fill in with number, fill in with alphabets in the lists.</p>
+    ]]></description>
+
+  <change-notes><![CDATA[
+      Add change notes here.<br>
+      <em>most HTML tags may be used</em>
+    ]]>
+  </change-notes>
+
+  <!-- please see http://www.jetbrains.org/intellij/sdk/docs/basics/getting_started/build_number_ranges.html for description -->
+  <idea-version since-build="145.0"/>
+
+  <!-- please see http://www.jetbrains.org/intellij/sdk/docs/basics/getting_started/plugin_compatibility.html
+       on how to target different products -->
+  <!-- uncomment to enable plugin in all products
+  <depends>com.intellij.modules.lang</depends>
+  -->
+
+  <extensions defaultExtensionNs="com.intellij">
+  </extensions>
+
+  <actions>
+    <action id="VssIntegration.GarbageCollection" class="com.kunall17.textBuilder.generateText" text="Text Builder"
+            description="Build text">
+      <add-to-group group-id="ToolsMenu" relative-to-action="GenerateJavadoc" anchor="after"/>
+      <keyboard-shortcut first-keystroke="control alt T" second-keystroke="B" keymap="$default"/>
+      <mouse-shortcut keystroke="control button3 doubleClick" keymap="$default"/>
+    </action>
+
+  </actions>
+
+</idea-plugin>
