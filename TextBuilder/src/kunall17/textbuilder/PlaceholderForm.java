@@ -6,6 +6,8 @@
 package kunall17.textbuilder;
 
 import javax.swing.*;
+import static javax.swing.JOptionPane.showMessageDialog;
+
 
 public class PlaceholderForm extends javax.swing.JFrame {
 
@@ -165,6 +167,11 @@ public class PlaceholderForm extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
+        if (noOfPlaceHolders == 0)
+        {
+            showMessageDialog(this, "No placeholders. Add placeholders to generate");
+            return;
+        }
         GenerateTextForm form = new GenerateTextForm(noOfPlaceHolders, jTextArea1.getText());
         if (generateTextInterface != null)
             form.setGenerateTextInterface(generateTextInterface);
