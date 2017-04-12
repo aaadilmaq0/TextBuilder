@@ -111,6 +111,11 @@ public class GenerateTextForm extends javax.swing.JFrame {
         jMenu1.add(jMenuItem1);
 
         jMenu5.setText("Add full path list");
+        jMenu5.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jMenu5MouseClicked(evt);
+            }
+        });
         jMenu5.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jMenu5ActionPerformed(evt);
@@ -119,6 +124,11 @@ public class GenerateTextForm extends javax.swing.JFrame {
         jMenu1.add(jMenu5);
 
         jMenu6.setText("Generate Numbers");
+        jMenu6.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jMenu6MouseClicked(evt);
+            }
+        });
         jMenu6.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jMenu6ActionPerformed(evt);
@@ -127,6 +137,11 @@ public class GenerateTextForm extends javax.swing.JFrame {
         jMenu1.add(jMenu6);
 
         jMenu7.setText("Generate alphabets");
+        jMenu7.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jMenu7MouseClicked(evt);
+            }
+        });
         jMenu7.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jMenu7ActionPerformed(evt);
@@ -135,6 +150,11 @@ public class GenerateTextForm extends javax.swing.JFrame {
         jMenu1.add(jMenu7);
 
         jMenu8.setText("Clear tables");
+        jMenu8.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jMenu8MouseClicked(evt);
+            }
+        });
         jMenu8.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jMenu8ActionPerformed(evt);
@@ -374,6 +394,97 @@ public class GenerateTextForm extends javax.swing.JFrame {
         // TODO add your handling code here:
         tm.clearAll();
     }//GEN-LAST:event_jMenu8ActionPerformed
+
+    private void jMenu5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu5MouseClicked
+                                               
+        // TODO add your handling code here:
+        
+                if (jTable1.getSelectedColumnCount() == 0) {
+                    showMessageDialog(null, "No selected Column");
+
+                } else {
+
+                    JFileChooser fileChooser = new JFileChooser();
+                    fileChooser.setCurrentDirectory(new File(System.getProperty("user.home")));
+                    fileChooser.setMultiSelectionEnabled(true);
+                    int result = fileChooser.showOpenDialog(this);
+                    if (result == JFileChooser.APPROVE_OPTION) {
+                        File[] selectedFile = fileChooser.getSelectedFiles();
+                        if (selectedFile.length == 1) {
+                            tm.setValueAt(selectedFile[0].getAbsolutePath().toString(), jTable1.getSelectedRow(), jTable1.getSelectedColumn());
+                        } else {
+
+                            for (int i = 0; i < selectedFile.length; i++) {
+                                if (jTable1.getSelectedRow() + i >= jTable1.getRowCount()) tm.addRow();
+                                tm.setValueAt(selectedFile[i].getAbsolutePath(), jTable1.getSelectedRow() + i, jTable1.getSelectedColumn());
+                            }
+
+                        }
+
+
+                    }
+
+                }
+    }//GEN-LAST:event_jMenu5MouseClicked
+
+    private void jMenu6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu6MouseClicked
+        // TODO add your handling code here:
+        if (jTable1.getSelectedColumnCount() == 0) {
+                    showMessageDialog(null, "No selected Column");
+
+                } else {
+                    Object result = JOptionPane.showInputDialog(null, "Enter Numbers seperated by - (Eg. 4-11)");
+                    String[] sd = String.valueOf(result).split("-");
+                    int n1 = Integer.parseInt(sd[0]);
+                    int n2 = Integer.parseInt(sd[1]);
+
+                    for (int i = 0; i <= n2 - n1; i++) {
+                        if (jTable1.getSelectedRow() + i >= jTable1.getRowCount()) tm.addRow();
+                        for (int j = 0; j < jTable1.getSelectedColumnCount(); j++) {
+
+                            tm.setValueAt(n1 + i, jTable1.getSelectedRow() + i, jTable1.getSelectedColumn() + j);
+                        }
+                    }
+                }
+    }//GEN-LAST:event_jMenu6MouseClicked
+
+    private void jMenu7MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu7MouseClicked
+        // TODO add your handling code here:
+        if (jTable1.getSelectedColumnCount() == 0) {
+                    showMessageDialog(null, "No selected Column");
+
+                } else {
+                    String s = (String) JOptionPane.showInputDialog(this,
+                            "Enter the alphabets (Same case alphabets) Eg. A-Z",
+                            "Alphabets", JOptionPane.OK_CANCEL_OPTION, null,
+                            null, "A-Z");
+
+                    String[] d = s.split("-");
+                    char c1 = d[0].charAt(0);
+                    char c2 = d[1].charAt(0);
+
+                    int i = 0;
+                    do {
+                        if (jTable1.getSelectedRow() + i >= jTable1.getRowCount()) tm.addRow();
+                        for (int j = 0; j < jTable1.getSelectedColumnCount(); j++) {
+                            tm.setValueAt(c1, jTable1.getSelectedRow() + i, jTable1.getSelectedColumn() + j);
+                        }
+
+                        c1 = ((char) (getInt(c1) + 1));
+                        if (i++ > 55) break;
+                    } while (c1 != c2);
+
+                    if (jTable1.getSelectedRow() + i >= jTable1.getRowCount()) tm.addRow();
+                    for (int j = 0; j < jTable1.getSelectedColumnCount(); j++) {
+                        tm.setValueAt(c1, jTable1.getSelectedRow() + i, jTable1.getSelectedColumn() + j);
+                    }
+                }
+    }//GEN-LAST:event_jMenu7MouseClicked
+
+    private void jMenu8MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu8MouseClicked
+        // TODO add your handling code here:
+        tm.clearAll();
+    }//GEN-LAST:event_jMenu8MouseClicked
 
     public int getInt(char c) {
         return (int) c;
