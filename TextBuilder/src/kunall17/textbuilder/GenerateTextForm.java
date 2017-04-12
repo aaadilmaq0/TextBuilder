@@ -16,10 +16,6 @@ import java.util.logging.Logger;
 
 import static javax.swing.JOptionPane.showMessageDialog;
 
-/**
- *
- * @author kunall17
- */
 public class GenerateTextForm extends javax.swing.JFrame {
 
     BuilderTableModel tm;
@@ -266,7 +262,7 @@ public class GenerateTextForm extends javax.swing.JFrame {
 
     private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
         // TODO add your handling code here:
-        
+
 
                 if (jTable1.getSelectedColumnCount() == 0) {
                     showMessageDialog(null, "No selected Column");
@@ -299,7 +295,7 @@ public class GenerateTextForm extends javax.swing.JFrame {
 
     private void jMenu5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenu5ActionPerformed
         // TODO add your handling code here:
-        
+
                 if (jTable1.getSelectedColumnCount() == 0) {
                     showMessageDialog(null, "No selected Column");
 
@@ -387,9 +383,9 @@ public class GenerateTextForm extends javax.swing.JFrame {
     }//GEN-LAST:event_jMenu8ActionPerformed
 
     private void jMenu5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu5MouseClicked
-                                               
+
         // TODO add your handling code here:
-        
+
                 if (jTable1.getSelectedColumnCount() == 0) {
                     showMessageDialog(null, "No selected Column");
 

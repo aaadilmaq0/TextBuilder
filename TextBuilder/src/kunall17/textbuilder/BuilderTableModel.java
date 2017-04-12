@@ -10,11 +10,6 @@ import javax.swing.table.AbstractTableModel;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- *
- * @author kunall17
- */
-
 class BuilderTableModel extends AbstractTableModel {
 
     public int numberOfPlaceholders = -1;

@@ -5,10 +5,6 @@
  */
 package kunall17.textbuilder;
 
-/**
- *
- * @author kunall17
- */
 public class Constants {
         public static final String PLACEHOLDER_TEXT = "placeHolder*&^!=?";
 }

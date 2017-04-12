@@ -5,10 +5,6 @@
  */
 package kunall17.textbuilder;
 
-/**
- *
- * @author kunall17
- */
 
 class RowData {
     int size;
