@@ -52,6 +52,7 @@ public class GenerateTextForm extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jMenuItem1 = new javax.swing.JMenuItem();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
         jMenuBar1 = new javax.swing.JMenuBar();
@@ -65,6 +66,9 @@ public class GenerateTextForm extends javax.swing.JFrame {
         clearTable = new javax.swing.JMenuItem();
         generateMenuItem = new javax.swing.JMenuItem();
         jMenu3 = new javax.swing.JMenu();
+        jMenu2 = new javax.swing.JMenu();
+
+        jMenuItem1.setText("jMenuItem1");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -81,7 +85,7 @@ public class GenerateTextForm extends javax.swing.JFrame {
         ));
         jScrollPane1.setViewportView(jTable1);
 
-        jMenu1.setText("Fill with");
+        jMenu1.setText("Options");
         jMenu1.add(jSeparator1);
 
         addFileList.setText("Add file list");
@@ -167,12 +171,10 @@ public class GenerateTextForm extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void generateFinal() {
-// TODO add your handling code here:
-        // TODO add your handling code here:
         String t1 = text;
 
         StringBuilder finalString = new StringBuilder();
-        for (int i = 0; i < tm.getRowCount(); i++) {
+        for (int i = 0; i < tm.getRowCount() ; i++) {
 
             for (int j = 0; j < numberOfPlaceHolders; j++) {
                 text = text.replace(Constants.PLACEHOLDER_TEXT + j, tm.getValueAt(i, j).toString());
@@ -216,7 +218,7 @@ public class GenerateTextForm extends javax.swing.JFrame {
     }//GEN-LAST:event_jMenu3MouseClicked
 
     private void menuAddRowsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuAddRowsActionPerformed
-               Object result = JOptionPane.showInputDialog(this, "Enter Number of Rows to be added?");
+        Object result = JOptionPane.showInputDialog(this, "Enter Number of Rows to be added?");
         try {
             int no = Integer.parseInt(result.toString());
             for (int i = 0; i < no; i++) {
@@ -228,7 +230,7 @@ public class GenerateTextForm extends javax.swing.JFrame {
     }//GEN-LAST:event_menuAddRowsActionPerformed
 
     private void addFullPathListActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addFullPathListActionPerformed
-        
+
         // TODO add your handling code here:
         if (jTable1.getSelectedColumnCount() == 0) {
             showMessageDialog(null, "No selected Column");
@@ -319,7 +321,7 @@ public class GenerateTextForm extends javax.swing.JFrame {
     }//GEN-LAST:event_generateNumbersActionPerformed
 
     private void generateAlphabetsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_generateAlphabetsActionPerformed
-         // TODO add your handling code here:
+        // TODO add your handling code here:
         if (jTable1.getSelectedColumnCount() == 0) {
             showMessageDialog(null, "No selected Column");
 
@@ -373,8 +375,10 @@ public class GenerateTextForm extends javax.swing.JFrame {
     private javax.swing.JMenuItem generateMenuItem;
     private javax.swing.JMenuItem generateNumbers;
     private javax.swing.JMenu jMenu1;
+    private javax.swing.JMenu jMenu2;
     private javax.swing.JMenu jMenu3;
     private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JPopupMenu.Separator jSeparator1;
     private javax.swing.JTable jTable1;
